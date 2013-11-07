@@ -13,11 +13,11 @@ import com.octanner.heaps.RemoveFromEmptyHeapException;
 
 import java.util.*;
 
-public class HeapImplementation<T> implements Heap<T> {
+public class SlowHeap<T> implements Heap<T> {
     private Comparator<T> comparator;
     private List<T> elementList;
 
-    public HeapImplementation(Comparator<T> comparator) {
+    public SlowHeap(Comparator<T> comparator) {
         this.comparator = comparator;
         elementList = new ArrayList<T>();
     }

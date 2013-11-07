@@ -17,13 +17,13 @@ import static org.testng.Assert.*;
  */
 public class HeapTest {
 
-    private HeapImplementation<Integer> createIntegerHeap() {
+    private SlowHeap<Integer> createIntegerHeap() {
         Comparator<Integer> comparator = new Comparator<Integer>() {
             public int compare(Integer o1, Integer o2) {
                 return o1 - o2;
             }
         };
-        return new HeapImplementation<Integer>(comparator);
+        return new SlowHeap<Integer>(comparator);
     }
 
     @Test
@@ -83,7 +83,7 @@ public class HeapTest {
     @Test
     void mergeTwoEmptyHeapsGivesEmptyHeap() {
         Heap<Integer> h1 = createIntegerHeap();
-        HeapImplementation<Integer> h2 = createIntegerHeap();
+        SlowHeap<Integer> h2 = createIntegerHeap();
         h1.merge(h2);
         assertTrue(h1.isEmpty());
     }
@@ -91,7 +91,7 @@ public class HeapTest {
     @Test
     void mergedNotEmptyIntoEmptyGivesNotEmpty() {
         Heap<Integer> h1 = createIntegerHeap();
-        HeapImplementation<Integer> h2 = createIntegerHeap();
+        SlowHeap<Integer> h2 = createIntegerHeap();
 
         h2.insert(4);
         h2.insert(6);
@@ -103,7 +103,7 @@ public class HeapTest {
     @Test
     void mergedHeapContainsAllElements() {
         Heap<Integer> h1 = createIntegerHeap();
-        HeapImplementation<Integer> h2 = createIntegerHeap();
+        SlowHeap<Integer> h2 = createIntegerHeap();
 
         h1.insert(1);
         h1.insert(2);
